@@ -14,15 +14,52 @@ const con = mysql.createConnection({
   multipleStatements: true
 });
 
+// CREATE TABLE `vinyls` (
+// 	`id` INT NOT NULL AUTO_INCREMENT,
+// 	`vinyl_title` varchar NOT NULL,
+// 	`genre` varchar NOT NULL,
+// 	`user_id` INT NOT NULL,
+// 	PRIMARY KEY (`id`)
+// );
+
+// CREATE TABLE `users` (
+// 	`id` INT NOT NULL AUTO_INCREMENT,
+// 	`name` INT NOT NULL,
+// 	PRIMARY KEY (`id`)
+// );
+
+// CREATE TABLE `requests` (
+// 	`id` INT NOT NULL AUTO_INCREMENT,
+// 	`user_id` INT NOT NULL,
+// 	`vinyl_id` INT NOT NULL,
+// 	`status` INT NOT NULL,
+// 	PRIMARY KEY (`id`)
+// );
+
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  let sql =
-    "DROP TABLE if exists students; CREATE TABLE students(id INT NOT NULL AUTO_INCREMENT, firstname VARCHAR(40) not null, lastname VARCHAR(40) not null, PRIMARY KEY (id));";
+  let sql = `DROP TABLE if exists vinyls; CREATE TABLE vinyls ( id INT NOT NULL AUTO_INCREMENT, vinyl_title varchar(255) NOT NULL, genre varchar(255) NOT NULL, user_id INT NOT NULL , PRIMARY KEY (id) );`;
   con.query(sql, function(err, result) {
     if (err) throw err;
-    console.log("Table creation `students` was successful!");
+    console.log("Table creation `vinyls` was successful!");
+
+    console.log("Closing...");
+  });
+
+  sql = `DROP TABLE if exists users; CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT,name varchar(255), PRIMARY KEY (id));`;
+  con.query(sql, function(err, result) {
+    if (err) throw err;
+    console.log("Table creation `users` was successful!");
+
+    console.log("Closing...");
+  });
+
+  sql = `DROP TABLE if exists requests; CREATE TABLE requests (id INT NOT NULL AUTO_INCREMENT,user_id INT NOT NULL,vinyl_id INT NOT NULL,status INT NOT NULL,PRIMARY KEY (id));`;
+  con.query(sql, function(err, result) {
+    if (err) throw err;
+    console.log("Table creation `requests` was successful!");
 
     console.log("Closing...");
   });
