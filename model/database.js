@@ -10,7 +10,7 @@ const con = mysql.createConnection({
   host: DB_HOST || "127.0.0.1",
   user: DB_USER || "root",
   password: DB_PASS,
-  database: DB_NAME || "facebook",
+  database: DB_NAME || "vinylSwap",
   multipleStatements: true
 });
 
@@ -40,7 +40,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  let sql = `DROP TABLE if exists vinyls; CREATE TABLE vinyls ( id INT NOT NULL AUTO_INCREMENT, vinyl_title varchar(255) NOT NULL, genre varchar(255) NOT NULL, user_id INT NOT NULL , PRIMARY KEY (id) );`;
+  let sql = `DROP TABLE if exists vinyls; CREATE TABLE vinyls ( id INT NOT NULL AUTO_INCREMENT, vinyl_title varchar(255) NOT NULL, genre varchar(255) NOT NULL, user_id INT NOT NULL, vinyl_image longblob NOT NULL ,PRIMARY KEY (id) );`;
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `vinyls` was successful!");
