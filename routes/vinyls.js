@@ -1,18 +1,14 @@
 var express = require("express");
 var router = express.Router();
-
-/* GET users listing. */
+const db = require("../model/helper");
 
 router.get("/", function(req, res, next) {
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
-    .then(results => {
-      res.send(results.data);
-    })
-    .catch(err => res.status(500).send(err));
+  res.send("Welcome to vinyls swap");
 });
+/* GET users listing. */
 
-router.get("/:id", function(req, res, next) {
-  db(`SELECT * FROM vinyls WHERE id = "${req.params.id}";`)
+router.get("/vinyls", function(req, res, next) {
+  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
@@ -43,6 +39,14 @@ router.get("/users", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
+router.get("/:id", function(req, res, next) {
+  db(`SELECT * FROM vinyls WHERE id = "${req.params.id}";`)
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
 router.get("/users/:id", function(req, res, next) {
   db(`SELECT * FROM users WHERE id = "${req.params.id}";`)
     .then(results => {
@@ -52,15 +56,7 @@ router.get("/users/:id", function(req, res, next) {
 });
 
 router.get("/users/:id/vinyls", function(req, res, next) {
-  db(`SELECT vynils FROM users WHERE id = "${req.params.id}";`)
-    .then(results => {
-      res.send(results.data);
-    })
-    .catch(err => res.status(500).send(err));
-});
-
-router.get("/vinyls/:id/users", function(req, res, next) {
-  db(`SELECT users FROM vinyls WHERE id = "${req.params.id}";`)
+  db(`SELECT vinyls FROM users WHERE id = "${req.params.id}";`)
     .then(results => {
       res.send(results.data);
     })
@@ -69,7 +65,7 @@ router.get("/vinyls/:id/users", function(req, res, next) {
 
 router.post("/vinyls", function(req, res, next) {
   db(
-    `INSERT INTO vinyls (vinyl_title,genre) VALUES("${req.params.title}","${req.params.genre}")`
+    `INSERT INTO vinyls (vinyl_title,genre,) VALUES("${req.body.title}","${req.body.genre}")`
   );
   db(`SELECT * FROM vinyls ORDER BY id ASC;`)
     .then(results => {
@@ -79,7 +75,7 @@ router.post("/vinyls", function(req, res, next) {
 });
 
 router.post("/users", function(req, res, next) {
-  db(`INSERT INTO users (name) VALUES("${req.params.name}")`);
+  db(`INSERT INTO users (name) VALUES("${req.body.name}")`);
   db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
@@ -88,7 +84,7 @@ router.post("/users", function(req, res, next) {
 });
 
 router.post("/requests", function(req, res, next) {
-  db(`INSERT INTO requests (status) VALUES("${req.params.status}")`);
+  db(`INSERT INTO requests (status) VALUES("${req.body.status}")`);
   db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
@@ -98,7 +94,7 @@ router.post("/requests", function(req, res, next) {
 
 router.put("/vinyls/:id", function(req, res, next) {
   db(
-    `UPDATE vinyls SET vinyl_title="${req.params.title}",genre="${req.params.genre}"`
+    `UPDATE vinyls SET vinyl_title="${req.body.title}",genre="${req.body.genre}"`
   );
   db(`SELECT * FROM vinyls ORDER BY id ASC;`)
     .then(results => {
@@ -108,7 +104,7 @@ router.put("/vinyls/:id", function(req, res, next) {
 });
 
 router.put("/users/:id", function(req, res, next) {
-  db(`UPDATE users SET name="${req.params.name}"`);
+  db(`UPDATE users SET name="${req.body.name}"`);
   db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
@@ -117,7 +113,7 @@ router.put("/users/:id", function(req, res, next) {
 });
 
 router.put("/requests/:id", function(req, res, next) {
-  db(`UPDATE requests SET status="${req.params.status}"`);
+  db(`UPDATE requests SET status="${req.body.status}"`);
   db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);

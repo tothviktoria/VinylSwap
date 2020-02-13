@@ -40,7 +40,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  let sql = `DROP TABLE if exists vinyls; CREATE TABLE vinyls ( id INT NOT NULL AUTO_INCREMENT, vinyl_title varchar(255) NOT NULL, genre varchar(255) NOT NULL, user_id INT NOT NULL, vinyl_image longblob NOT NULL ,PRIMARY KEY (id) );`;
+  let sql = `DROP TABLE if exists vinyls; CREATE TABLE vinyls ( id INT NOT NULL AUTO_INCREMENT, vinyl_title varchar(255) NOT NULL, genre varchar(255) NOT NULL, user_id INT NOT NULL, vinyl_image longblob NOT NULL ,PRIMARY KEY (id) ), FOREIGN KEY (user_id));`;
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `vinyls` was successful!");
@@ -56,7 +56,7 @@ con.connect(function(err) {
     console.log("Closing...");
   });
 
-  sql = `DROP TABLE if exists requests; CREATE TABLE requests (id INT NOT NULL AUTO_INCREMENT,user_id INT NOT NULL,vinyl_id INT NOT NULL,status INT NOT NULL,PRIMARY KEY (id));`;
+  sql = `DROP TABLE if exists requests; CREATE TABLE requests (id INT NOT NULL AUTO_INCREMENT,user_id INT NOT NULL,vinyl_id INT NOT NULL,status INT NOT NULL,PRIMARY KEY (id), FOREIGN KEY (user_id), FOREIGN KEY (vinyl_id));`;
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `requests` was successful!");
