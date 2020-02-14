@@ -3,7 +3,7 @@ var router = express.Router();
 const db = require("../model/helper");
 
 router.get("/", function(req, res, next) {
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
@@ -11,7 +11,15 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/:id", function(req, res, next) {
-  db(`SELECT * FROM vinyls WHERE id = "${req.params.id}";`)
+  db(`SELECT * FROM users WHERE id = "${req.params.id}";`)
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+router.get("/:id/vinyls", function(req, res, next) {
+  db(`SELECT * FROM vinyls WHERE user_id= "${req.params.id}";`)
     .then(results => {
       res.send(results.data);
     })
@@ -19,10 +27,8 @@ router.get("/:id", function(req, res, next) {
 });
 
 router.post("/", function(req, res, next) {
-  db(
-    `INSERT INTO vinyls (vinyl_title,genre,user_id) VALUES("${req.body.title}","${req.body.genre}",1);`
-  );
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`INSERT INTO users (name) VALUES("${req.body.name}");`);
+  db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
@@ -30,10 +36,8 @@ router.post("/", function(req, res, next) {
 });
 
 router.put("/:id", function(req, res, next) {
-  db(
-    `UPDATE vinyls SET vinyl_title="${req.body.title}",genre="${req.body.genre}" WHERE id="${req.params.id}";`
-  );
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`UPDATE users SET name="${req.body.name}" WHERE id="${req.params.id}";`);
+  db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
@@ -41,8 +45,8 @@ router.put("/:id", function(req, res, next) {
 });
 
 router.delete("/:id", function(req, res, next) {
-  db(`DELETE FROM vinyls WHERE id="${req.params.id}"`);
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`DELETE FROM users WHERE id="${req.params.id}"`);
+  db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })

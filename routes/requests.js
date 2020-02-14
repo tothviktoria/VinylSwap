@@ -3,7 +3,7 @@ var router = express.Router();
 const db = require("../model/helper");
 
 router.get("/", function(req, res, next) {
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
@@ -11,7 +11,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/:id", function(req, res, next) {
-  db(`SELECT * FROM vinyls WHERE id = "${req.params.id}";`)
+  db(`SELECT * FROM requests WHERE id = "${req.params.id}";`)
     .then(results => {
       res.send(results.data);
     })
@@ -20,9 +20,9 @@ router.get("/:id", function(req, res, next) {
 
 router.post("/", function(req, res, next) {
   db(
-    `INSERT INTO vinyls (vinyl_title,genre,user_id) VALUES("${req.body.title}","${req.body.genre}",1);`
+    `INSERT INTO requests (status) VALUES("${req.body.status}") WHERE vinyl_id=3;`
   );
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
@@ -31,9 +31,9 @@ router.post("/", function(req, res, next) {
 
 router.put("/:id", function(req, res, next) {
   db(
-    `UPDATE vinyls SET vinyl_title="${req.body.title}",genre="${req.body.genre}" WHERE id="${req.params.id}";`
+    `UPDATE requests SET status="${req.body.status}" WHERE id="${req.params.id}";`
   );
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
@@ -41,8 +41,8 @@ router.put("/:id", function(req, res, next) {
 });
 
 router.delete("/:id", function(req, res, next) {
-  db(`DELETE FROM vinyls WHERE id="${req.params.id}"`);
-  db(`SELECT * FROM vinyls ORDER BY id ASC;`)
+  db(`DELETE FROM requests WHERE id="${req.params.id}"`);
+  db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
     })
