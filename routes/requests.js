@@ -20,7 +20,7 @@ router.get("/:id", function(req, res, next) {
 
 router.post("/", function(req, res, next) {
   db(
-    `INSERT INTO requests (status) VALUES("${req.body.status}") WHERE vinyl_id=3;`
+    `INSERT INTO requests (vinyl_id,user_id,status) VALUES("${req.body.vinyl_id}",1,0) ;`
   );
   db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
@@ -29,9 +29,9 @@ router.post("/", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
-router.put("/:id", function(req, res, next) {
+router.put("/vinyls/:id", function(req, res, next) {
   db(
-    `UPDATE requests SET status="${req.body.status}" WHERE id="${req.params.id}";`
+    `UPDATE requests SET status="${req.body.status}" WHERE vinyl_id="${req.params.id}";`
   );
   db(`SELECT * FROM requests ORDER BY id ASC;`)
     .then(results => {
