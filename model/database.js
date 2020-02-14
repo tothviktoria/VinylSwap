@@ -40,7 +40,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  let sql = `DROP TABLE if exists vinyls; CREATE TABLE vinyls ( id INT NOT NULL AUTO_INCREMENT, vinyl_title varchar(255) NOT NULL, genre varchar(255) NOT NULL, user_id INT NOT NULL, vinyl_image longblob NOT NULL ,PRIMARY KEY (id) ), FOREIGN KEY (user_id));`;
+  let sql = `DROP TABLE if exists vinyls; CREATE TABLE vinyls ( id INT NOT NULL AUTO_INCREMENT, vinyl_title varchar(255) NOT NULL, genre varchar(255) NOT NULL, user_id INT NOT NULL ,PRIMARY KEY (id) ), FOREIGN KEY (user_id));`;
   con.query(sql, function(err, result) {
     if (err) throw err;
     console.log("Table creation `vinyls` was successful!");
