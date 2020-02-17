@@ -7,14 +7,13 @@
 
 // export default App;
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Vinyls from "./components/Vinyls";
+import Profile from "./components/Profile";
+import About from "./components/About";
+import Home from "./components/Home";
+import Sign from "./components/Sign";
+import Collection from "./components/Collection";
 
 export default function App() {
   return (
@@ -22,13 +21,16 @@ export default function App() {
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about">Our story</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/vinyls">Vinyls</Link>
+          </li>
+          <li>
+            <Link to="/profile">My profile</Link>
           </li>
         </ul>
 
@@ -36,59 +38,19 @@ export default function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/topics">
-            <Topics />
+          <Route path="/vinyls" component={Vinyls} />
+          <Route path="/collection">
+            <Collection />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/profile" component={Profile} />
+          <Route path="/sign">
+            <Sign />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Topics() {
-  let match = useRouteMatch();
-
-  return (
-    <div>
-      <h2>Topics</h2>
-
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-        </li>
-      </ul>
-
-      {/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
-      <Switch>
-        <Route path={`${match.path}/:topicId`}>
-          <Topic />
-        </Route>
-        <Route path={match.path}>
-          <h3>Please select a topic.</h3>
-        </Route>
-      </Switch>
-    </div>
-  );
-}
-
-function Topic() {
-  let { topicId } = useParams();
-  return <h3>Requested topic ID: {topicId}</h3>;
 }
