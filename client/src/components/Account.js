@@ -22,7 +22,7 @@ export default class Account extends Component {
           <MyDetails />
         ) : (
           // this is how the parent gives the prop to the child
-          <UserForm projects={this.state.user} />
+          <UserForm />
         )}
       </div>
     );

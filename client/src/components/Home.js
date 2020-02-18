@@ -6,6 +6,7 @@ export default class Home extends Component {
     return (
       <div>
         <h1>Welcome to VinylSwap!</h1>
+        <h2> Still basic, but quite fantastic! </h2>
         <div>
           <Link to={"/sign"}>Sign</Link>
         </div>
