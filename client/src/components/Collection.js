@@ -49,8 +49,9 @@ export default class Collection extends Component {
           {this.state.vinyls.map((vinyl, index) => {
             return (
               <li key={index}>
-                {vinyl.vinyl_title + " " + vinyl.genre + " " + vinyl.url}
+                {vinyl.vinyl_title + " / " + vinyl.genre}
                 <button onClick={e => this.deleteVinyl(vinyl.id)}>X</button>
+                <img src={vinyl.url} />
               </li>
             );
           })}

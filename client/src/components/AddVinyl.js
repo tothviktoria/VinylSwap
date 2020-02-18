@@ -6,6 +6,7 @@ export default class AddVinyl extends Component {
     this.state = {
       title: "",
       genre: "",
+      url: "",
       vinyls: []
     };
   }
@@ -20,26 +21,26 @@ export default class AddVinyl extends Component {
       genre: e.target.value
     });
   }
-
-  //   componentDidMount() {
-  //     fetch("/vinyls")
-  //       .then(res => res.json())
-  //       .then(json => {
-  //         this.setState({
-  //           vinyls: json
-  //         });
-  //         console.log(json);
-  //       })
-  //       .catch(error => {
-  //         console.log(error);
-  //       });
-  //   }
+  updateUrl(e) {
+    this.setState({
+      url: e.target.value
+    });
+  }
+  addProject(newProject) {
+    this.setState({
+      projects: [...this.state.projects, newProject]
+    });
+  }
 
   addVinyl() {
     fetch("/vinyls", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: this.state.title, genre: this.state.genre })
+      body: JSON.stringify({
+        title: this.state.title,
+        genre: this.state.genre,
+        url: this.state.url
+      })
     })
       .then(res => res.json())
       .then(json => {
@@ -65,6 +66,14 @@ export default class AddVinyl extends Component {
           type="text"
           placeholder="add genre"
         ></input>
+
+        <input
+          onChange={e => this.updateUrl(e)}
+          value={this.state.url}
+          type="url"
+          placeholder="add image"
+        ></input>
+
         <button onClick={e => this.addVinyl()}>Submit</button>
       </div>
     );
