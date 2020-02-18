@@ -27,7 +27,9 @@ router.get("/:id/vinyls", function(req, res, next) {
 });
 
 router.post("/", function(req, res, next) {
-  db(`INSERT INTO users (name) VALUES("${req.body.name}");`);
+  db(
+    `INSERT INTO users (first_name, last_name, location) VALUES("${req.body.first_name}","${req.body.last_name}","${req.body.location}" );`
+  );
   db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);
@@ -36,7 +38,14 @@ router.post("/", function(req, res, next) {
 });
 
 router.put("/:id", function(req, res, next) {
-  db(`UPDATE users SET name="${req.body.name}" WHERE id="${req.params.id}";`);
+  console.log("test");
+  console.log(req.body);
+  db(
+    `UPDATE users SET first_name="${req.body.firstname}" , last_name="${req.body.lastname}" ,   
+   location="${req.body.location}"
+    
+    WHERE id="${req.params.id}";`
+  );
   db(`SELECT * FROM users ORDER BY id ASC;`)
     .then(results => {
       res.send(results.data);

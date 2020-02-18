@@ -20,7 +20,7 @@ router.get("/:id", function(req, res, next) {
 
 router.post("/", function(req, res, next) {
   db(
-    `INSERT INTO vinyls (vinyl_title,genre,user_id) VALUES("${req.body.title}","${req.body.genre}",1);`
+    `INSERT INTO vinyls (vinyl_title,genre,user_id) VALUES("${req.body.title}","${req.body.genre}","${req.body.url}",1);`
   );
   db(`SELECT * FROM vinyls ORDER BY id ASC;`)
     .then(results => {
@@ -31,7 +31,7 @@ router.post("/", function(req, res, next) {
 
 router.put("/:id", function(req, res, next) {
   db(
-    `UPDATE vinyls SET vinyl_title="${req.body.title}",genre="${req.body.genre}" WHERE id="${req.params.id}";`
+    `UPDATE vinyls SET vinyl_title="${req.body.title}",genre="${req.body.genre}",url="${req.body.url}" WHERE id="${req.params.id}";`
   );
   db(`SELECT * FROM vinyls ORDER BY id ASC;`)
     .then(results => {
