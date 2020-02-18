@@ -6,18 +6,7 @@ export default class Vinyls extends Component {
   render() {
     return (
       <div>
-        <div>
-          <ul>
-            <li>
-              <Link to={`${this.props.match.url}/collection`}> Collection</Link>
-            </li>
-          </ul>
-          <Switch>
-            <Route path={`${this.props.match.path}/collection`}>
-              <Collection />
-            </Route>
-          </Switch>
-        </div>
+        <Collection />
       </div>
     );
   }

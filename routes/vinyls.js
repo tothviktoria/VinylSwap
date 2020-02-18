@@ -18,9 +18,17 @@ router.get("/:id", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
+router.get("/users/:id", function(req, res, next) {
+  db(`SELECT * FROM vinyls WHERE user_id = "${req.params.id}";`)
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
 router.post("/", function(req, res, next) {
   db(
-    `INSERT INTO vinyls (vinyl_title,genre,url,user_id) VALUES("${req.body.title}","${req.body.genre}","${req.body.url}",1);`
+    `INSERT INTO vinyls (vinyl_title,genre,url,user_id) VALUES("${req.body.title}","${req.body.genre}","${req.body.url}",2);`
   );
   db(`SELECT * FROM vinyls ORDER BY id ASC;`)
     .then(results => {

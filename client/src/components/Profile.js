@@ -10,7 +10,7 @@ export default class Profile extends Component {
       <div>
         <ul>
           <li>
-            <Link to={`${this.props.match.url}/myVinyls`}>My vinyls</Link>
+            <Link to={`${this.props.match.url}/myVinyls`}>My box</Link>
           </li>
           <li>
             <Link to={`${this.props.match.url}/account`}> My account</Link>

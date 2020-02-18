@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import Sign from "./Sign";
 export default class Home extends Component {
   render() {
     return (
@@ -8,7 +8,7 @@ export default class Home extends Component {
         <h1>Welcome to VinylSwap!</h1>
         <h2> Still basic, but quite fantastic! </h2>
         <div>
-          <Link to={"/sign"}>Sign</Link>
+          <Sign />
         </div>
       </div>
     );
