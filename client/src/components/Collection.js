@@ -23,13 +23,32 @@ export default class Collection extends Component {
       });
   }
 
+  deleteVinyl(id) {
+    fetch(`/vinyls/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(res => res.json())
+      .then(json => {
+        // upon success, update tasks
+        this.setState({
+          vinyls: json
+        });
+      });
+  }
+
   render() {
     return (
       <div>
         <h1>Collection</h1>
         <ul>
           {this.state.vinyls.map((vinyl, index) => {
-            return <li key={index}>{vinyl.vinyl_title + " " + vinyl.genre}</li>;
+            return (
+              <li key={index}>
+                {vinyl.vinyl_title + " " + vinyl.genre}
+                <button onClick={e => this.deleteVinyl(vinyl.id)}>X</button>
+              </li>
+            );
           })}
         </ul>
       </div>

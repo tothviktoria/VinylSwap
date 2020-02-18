@@ -40,7 +40,14 @@ export default class AddVinyl extends Component {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: this.state.title, genre: this.state.genre })
-    });
+    })
+      .then(res => res.json())
+      .then(json => {
+        // upon success, update tasks
+        this.setState({
+          vinyls: json
+        });
+      });
   }
 
   render() {
