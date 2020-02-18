@@ -4,28 +4,26 @@ import MyDetails from "./MyDetails";
 import UserForm from "./UserForm";
 
 export default class Account extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      myDetails: true
+    };
+  }
+  changeView(isMyDetails) {
+    this.setState({ myDetails: isMyDetails });
+  }
   render() {
     return (
       <div>
-        <ul>
-          <li>
-            <Link to={`/userForm`}> Form </Link>
-          </li>
-          <li>
-            <Link to={`/myDetails`}> My details </Link>
-          </li>
-        </ul>
-
-        {/* <Switch>
-
-          <Route path={`${this.props.match.path}/userForm`}>
-            <UserForm />
-          </Route>
-
-          <Route path={`${this.props.match.path}/myDetails`}>
-            <MyDetails />
-          </Route>
-        </Switch> */}
+        <button onClick={() => this.changeView(false)}>Form</button>
+        <button onClick={() => this.changeView(true)}>My details</button>
+        {this.state.myDetails ? (
+          <MyDetails />
+        ) : (
+          // this is how the parent gives the prop to the child
+          <UserForm projects={this.state.user} />
+        )}
       </div>
     );
   }

@@ -34,6 +34,10 @@ export default class Collection extends Component {
         this.setState({
           vinyls: json
         });
+      })
+
+      .catch(error => {
+        console.log(error);
       });
   }
 
@@ -45,7 +49,7 @@ export default class Collection extends Component {
           {this.state.vinyls.map((vinyl, index) => {
             return (
               <li key={index}>
-                {vinyl.vinyl_title + " " + vinyl.genre}
+                {vinyl.vinyl_title + " " + vinyl.genre + " " + vinyl.url}
                 <button onClick={e => this.deleteVinyl(vinyl.id)}>X</button>
               </li>
             );
