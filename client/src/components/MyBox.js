@@ -49,7 +49,11 @@ export default class MyBox extends Component {
             return (
               <li key={index}>
                 {vinyl.vinyl_title + " / " + vinyl.genre}
-                <button onClick={e => this.deleteVinyl(vinyl.id)}>X</button>
+                <button
+                  type="button"
+                  class="btn btn-outline-dark"
+                  onClick={e => this.deleteVinyl(vinyl.id)}
+                ></button>
                 <img src={vinyl.url} />
               </li>
             );

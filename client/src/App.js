@@ -21,28 +21,35 @@ export default function App() {
     <Router>
       <div>
         <div class="row">
-          <div class="col-sm p-5 bg-warning">
-            <div class="d-flex justify-content-center text-white text-left">
-              VinylSwap
-            </div>
+          <div class="col-sm-12 p-5 bg-warning">
+            <div class="d-flex justify-content-right text-white"></div>
             <div>
-              <div class="col-sm p-4 bg-dark">
-                <div class="d-flex justify-content-center text-white text-left">
-                  <Link to="/home">HOME</Link>
+              <div class="col-sm-2 p-4 shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="d-flex justify-content-center">
+                  <Link class="text-decoration-none text-warning" to="/home">
+                    HOME
+                  </Link>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm p-4 bg-light">
-              <div class="d-flex justify-content-center text-muted text-left">
-                <Link to="/about">OUR STORY</Link>
+            <div class="col-sm-2 p-4 shadow-lg p-3 mb-5 bg-white rounded">
+              <div class="d-flex justify-content-center">
+                <Link class="text-decoration-none text-warning" to="/about">
+                  OUR STORY
+                </Link>
               </div>
             </div>
 
-            <div class="col-sm p-4 bg-dark">
-              <div class="d-flex justify-content-center text-white text-left">
-                <Link to="/profile">My profile</Link>
+            <div class="col-sm-2 p-4 shadow-lg p-3 mb-5 bg-white rounded">
+              <div href="#" class="d-flex justify-content-center">
+                <Link class="text-decoration-none text-warning" to="/profile">
+                  MY PROFILE
+                </Link>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-4 pg-5">VinylSwap</div>
             </div>
           </div>
         </div>
@@ -50,9 +57,14 @@ export default function App() {
         <section class="mainimage">
           <div class="container">
             <div class="row">
-              <div class="col-sm-1 pg-5"></div>
-              <div class="d-flex justify-content-right text-dark text-right">
-                <Link to="/vinyls">Vinyls</Link>
+              <div class="col-sm-1 pg-4"></div>
+              <div class="d-flex justify-content-center">
+                <Link
+                  class="btn btn-white shadow-lg p-3 mb-5 bg-white rounded text-decoration-none text-warning"
+                  to="/vinyls"
+                >
+                  VINYLS
+                </Link>
               </div>
             </div>
           </div>

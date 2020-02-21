@@ -9,15 +9,15 @@ export default class Profile extends Component {
     return (
       <div>
         <ul>
-          <li>
+          <button type="button" class="btn btn-dark">
             <Link to={`${this.props.match.url}/myVinyls`}>My box</Link>
-          </li>
-          <li>
+          </button>
+          <button type="button" class="btn btn-dark">
             <Link to={`${this.props.match.url}/account`}> My account</Link>
-          </li>
-          <li>
+          </button>
+          <button type="button" class="btn btn-dark">
             <Link to={`${this.props.match.url}/inbox`}> Inbox</Link>
-          </li>
+          </button>
         </ul>
         <Switch>
           <Route path={`${this.props.match.path}/myVinyls`}>

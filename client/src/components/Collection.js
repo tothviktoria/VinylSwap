@@ -36,7 +36,9 @@ export default class Collection extends Component {
                 {vinyl.vinyl_title + " / " + vinyl.genre}
 
                 <img src={vinyl.url} />
-                <button>Request</button>
+                <button type="button" class="btn btn-outline-dark">
+                  Request
+                </button>
               </li>
             );
           })}

@@ -54,27 +54,42 @@ export default class AddVinyl extends Component {
   render() {
     return (
       <div>
-        <textarea
-          onChange={e => this.updateTitle(e)}
-          value={this.state.title}
-          type="text"
-          placeholder="add title"
-        ></textarea>
-        <input
-          onChange={e => this.updateGenre(e)}
-          value={this.state.genre}
-          type="text"
-          placeholder="add genre"
-        ></input>
-
-        <input
-          onChange={e => this.updateUrl(e)}
-          value={this.state.url}
-          type="url"
-          placeholder="add image"
-        ></input>
-
-        <button onClick={e => this.addVinyl()}>Submit</button>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Add title/genre/image</span>
+          </div>
+          <input
+            onChange={e => this.updateTitle(e)}
+            value={this.state.title}
+            placeholder="add title"
+            type="text"
+            aria-label="add title"
+            class="form-control"
+          ></input>
+          <input
+            onChange={e => this.updateGenre(e)}
+            value={this.state.genre}
+            placeholder="add genre"
+            type="text"
+            aria-label="add genre"
+            class="form-control"
+          ></input>
+          <input
+            onChange={e => this.updateUrl(e)}
+            value={this.state.url}
+            placeholder="add image"
+            type="text"
+            aria-label="add image"
+            class="form-control"
+          ></input>
+        </div>
+        <button
+          type="button"
+          class="btn btn-dark"
+          onClick={e => this.addVinyl()}
+        >
+          Submit
+        </button>
       </div>
     );
   }
