@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+.mainimage {
+  background-image: url("https://i.imgur.com/Y5FKYwo.jpg");
+  background-size: cover;
+  height: 500px;
+}
