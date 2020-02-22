@@ -20,47 +20,98 @@ export default function App() {
   return (
     <Router>
       <div>
-        <div class="row">
-          <div class="col-sm-12 px-5 py-2 p bg-warning">
-            <div class="d-flex justify-content-right text-white"></div>
-            <div>
-              <div class="col-sm-2 px-3 py-2 shadow-lg p-3 mb-5 bg-white rounded">
+        <section class="mainmenu">
+          <div class="row">
+            <div class="col">
+              <div class="col-6 shadow-lg p-3 mb-5 rounded">
+                <div class="d-flex justify-content-xl-end">
+                  <blockquote class="blockquote text-right">
+                    <p class="mb-0">
+                      Reality is only a term, based on values and well worn
+                      principles, whereas the dream goes on forever.
+                    </p>
+                    <footer class="blockquote-footer">
+                      Ian Curtis <cite title="Source Title">Joy Division</cite>
+                    </footer>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="col-11 shadow-lg p-3 mb-5 rounded">
+                <div class="d-flex justify-content-xl-end">
+                  <img src="https://i.imgur.com/Z7sXZei.png"></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="background">
+          <div class="row">
+            <div class="col-6">
+              <img
+                src="https://i.imgur.com/gn77yWf.png"
+                height="400px"
+                alt="vinylicon"
+              ></img>
+            </div>
+            <div class="col">
+              <div class="col-3 shadow-lg p-3 mb-5 rounded">
                 <div class="d-flex justify-content-center">
-                  <Link class="text-decoration-none text-warning" to="/home">
+                  <Link class="text-decoration-none text-white" to="/home">
                     HOME
                   </Link>
                 </div>
               </div>
-            </div>
-
-            <div class="col-sm-2 px-3 py-2 shadow-lg p-3 mb-5 bg-white rounded">
-              <div class="d-flex justify-content-center">
-                <Link class="text-decoration-none text-warning" to="/about">
-                  OUR STORY
-                </Link>
+              <div class="col-3 shadow-lg p-3 mb-5 rounded">
+                <div class="d-flex justify-content-center">
+                  <Link
+                    class="text-decoration-none text-white"
+                    data-toggle="modal"
+                    data-target="#staticBackdrop"
+                    to="/about"
+                  >
+                    OUR STORY
+                  </Link>
+                </div>
               </div>
-            </div>
 
-            <div class="col-sm-2 px-3 py-2  shadow-lg p-3 mb-5 bg-white rounded">
-              <div href="#" class="d-flex justify-content-center">
-                <Link class="text-decoration-none text-warning" to="/profile">
-                  MY PROFILE
-                </Link>
+              <div class="row">
+                <div class="col">
+                  <div class="col-3 shadow-lg p-3 mb-5 rounded">
+                    <div href="#" class="d-flex justify-content-center">
+                      <Link
+                        class="text-decoration-none text-white"
+                        to="/profile"
+                      >
+                        MY PROFILE
+                      </Link>
+                    </div>
+                  </div>
+                  <div class="col-3 shadow-lg p-3 mb-5 rounded">
+                    <div href="#" class="d-flex justify-content-center">
+                      <Link
+                        class="text-decoration-none text-white"
+                        to="/vinyls"
+                      >
+                        VINYLS
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         <section class="mainimage">
           <div class="row">
             <div class="col-sm-1"></div>
             <div class="d-flex justify-content-center">
-              <Link
-                class="btn btn-white shadow-lg px-3 py-2 bg-white rounded text-decoration-none text-warning"
-                to="/vinyls"
-              >
-                VINYLS
-              </Link>
+              <Link to="/vinyls"></Link>
             </div>
           </div>
         </section>

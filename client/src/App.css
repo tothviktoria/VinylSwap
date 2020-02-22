@@ -6,3 +6,13 @@
   background-size: cover;
   height: 500px;
 }
+.background {
+  background-color: gold;
+}
+.vinylicon {
+  height: 50px;
+}
+.mainmenu {
+  background-color: lightgrey;
+  height: 80px;
+}
