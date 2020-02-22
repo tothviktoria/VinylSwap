@@ -34,6 +34,15 @@ export default function App() {
                       Ian Curtis <cite title="Source Title">Joy Division</cite>
                     </footer>
                   </blockquote>
+                  <div class="col">
+                    <div class="col-12 shadow-lg p-3 mb-5 rounded">
+                      <div class="d-flex justify-content-xl-end">
+                        <button class="btn btn-primary" type="submit">
+                          SIGN IN
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
