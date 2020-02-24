@@ -8,6 +8,7 @@ export default class Vinyls extends Component {
     return (
       <div>
         <Collection />
+        <img src="https://i.imgur.com/f0vqMgh.png" height="1100px" />
       </div>
     );
   }
