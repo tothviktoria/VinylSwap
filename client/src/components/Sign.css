@@ -5,10 +5,16 @@
 body {
   background: slategrey;
   background: linear-gradient(to right, slategrey, Gainsboro);
+  background-size: cover;
 }
 .btn-google {
   background-color: tomato;
 }
 .btn-facebook {
   background-color: #3b5998;
+}
+.backg {
+  background-image: url("https://i.imgur.com/Kyzx0JM.png");
+  background-size: cover;
+  background-color: mediumseagreen;
 }

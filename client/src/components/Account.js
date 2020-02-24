@@ -16,8 +16,23 @@ export default class Account extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.changeView(false)}>Form</button>
-        <button onClick={() => this.changeView(true)}>My details</button>
+        <img
+          src="https://i.imgur.com/gn77yWf.png"
+          height="100px"
+          alt="vinylicon"
+        ></img>
+        <button
+          class="btn btn-dark text-decoration-none text-white"
+          onClick={() => this.changeView(false)}
+        >
+          Form
+        </button>
+        <button
+          class="btn btn-dark text-decoration-none text-white"
+          onClick={() => this.changeView(true)}
+        >
+          My details
+        </button>
         {this.state.myDetails ? (
           <MyDetails />
         ) : (

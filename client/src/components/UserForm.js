@@ -47,27 +47,32 @@ export default class UserForm extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Update my details</h1>
+      <div class="container">
+        <h3>Update my details</h3>
         <input
           onChange={e => this.updateFirst(e)}
           value={this.state.firstname}
           type="text"
           placeholder="firstname"
+          class="form-control mb-2 mr-sm-2"
         ></input>
         <input
           onChange={e => this.updateLast(e)}
           value={this.state.lastname}
           type="text"
           placeholder="lastname"
+          class="form-control mb-2 mr-sm-2"
         ></input>
         <input
           onChange={e => this.updateLoc(e)}
           value={this.state.location}
           type="text"
           placeholder="location"
+          class="form-control mb-2 mr-sm-2"
         ></input>
-        <button onClick={e => this.updateUser()}>Submit</button>
+        <button class="btn btn-primary" onClick={e => this.updateUser()}>
+          Submit
+        </button>
       </div>
     );
   }

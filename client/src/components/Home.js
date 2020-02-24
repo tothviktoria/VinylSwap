@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./Home.css";
+import Sign from "./Sign";
 
 export default class Home extends Component {
   render() {
@@ -23,17 +24,59 @@ export default class Home extends Component {
                   <div class="col">
                     <div class="col-12 shadow-lg p-3 mb-5 rounded">
                       <div class="d-flex justify-content-xl-end">
-                        <button class="btn btn-primary" type="submit">
-                          <Link
-                            class="text-decoration-none text-white"
-                            to="/sign"
-                          >
-                            SIGN IN
-                          </Link>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          data-toggle="modal"
+                          data-target="#exampleModal"
+                        >
+                          SIGN IN
                         </button>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    SIGN IN
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <Sign />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
                 </div>
               </div>
             </div>

@@ -13,9 +13,7 @@ export default function App() {
       <Link class="text-decoration-none text-white" to="/home">
         HOME |
       </Link>
-      <Link class="text-decoration-none text-white" to="/sign">
-        SIGN IN |
-      </Link>
+      <Link class="text-decoration-none text-white" to="/sign"></Link>
       <Link class="text-decoration-none text-white" to="/about">
         OUR STORY|
       </Link>
