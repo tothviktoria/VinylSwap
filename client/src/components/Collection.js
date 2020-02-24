@@ -35,7 +35,7 @@ export default class Collection extends Component {
               <li key={index}>
                 {vinyl.vinyl_title + " / " + vinyl.genre}
 
-                <img src={vinyl.url} />
+                <img src={vinyl.url} alt="vinyl" />
                 <button type="button" class="btn btn-outline-dark">
                   Request
                 </button>
