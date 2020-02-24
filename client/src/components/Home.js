@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Sign from "./Sign";
 import "./Home.css";
 
 export default class Home extends Component {
@@ -27,8 +26,6 @@ export default class Home extends Component {
                         <button class="btn btn-primary" type="submit">
                           <Link
                             class="text-decoration-none text-white"
-                            data-toggle="modal"
-                            data-target="#staticBackdrop"
                             to="/sign"
                           >
                             SIGN IN
@@ -71,12 +68,7 @@ export default class Home extends Component {
               </div>
               <div class="col-3 shadow-lg p-3 mb-5 rounded">
                 <div class="d-flex justify-content-center">
-                  <Link
-                    class="text-decoration-none text-white"
-                    //data-toggle="modal"
-                    // data-target="#staticBackdrop"
-                    to="/about"
-                  >
+                  <Link class="text-decoration-none text-white" to="/about">
                     OUR STORY
                   </Link>
                 </div>

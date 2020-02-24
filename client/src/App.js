@@ -10,10 +10,18 @@ import Collection from "./components/Collection";
 export default function App() {
   return (
     <Router>
-      <Link to="/home">HOME |</Link>
-      <Link to="/sign">SIGN IN |</Link>
-      <Link to="/about">OUR STORY|</Link>
-      <Link to="/vinyls">VINYLS</Link>
+      <Link class="text-decoration-none text-white" to="/home">
+        HOME |
+      </Link>
+      <Link class="text-decoration-none text-white" to="/sign">
+        SIGN IN |
+      </Link>
+      <Link class="text-decoration-none text-white" to="/about">
+        OUR STORY|
+      </Link>
+      <Link class="text-decoration-none text-white" to="/vinyls">
+        VINYLS
+      </Link>
 
       <Switch>
         <Route path="/about">

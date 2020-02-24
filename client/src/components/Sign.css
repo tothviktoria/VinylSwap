@@ -1,3 +1,14 @@
 .img {
   height: 20px;
 }
+
+body {
+  background: DimGrey;
+  background: linear-gradient(to right, DimGrey, Gainsboro);
+}
+.btn-google {
+  background-color: tomato;
+}
+.btn-facebook {
+  background-color: #3b5998;
+}
