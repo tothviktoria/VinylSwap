@@ -3,8 +3,8 @@
 }
 
 body {
-  background: DimGrey;
-  background: linear-gradient(to right, DimGrey, Gainsboro);
+  background: slategrey;
+  background: linear-gradient(to right, slategrey, Gainsboro);
 }
 .btn-google {
   background-color: tomato;
